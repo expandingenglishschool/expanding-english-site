@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  EXPANDING ENGLISH — Site institucional (página única)
+  ============================================================================
+
+  TECNOLOGIAS
+  - HTML5 semântico (header, nav, main, section, footer).
+  - CSS3 em arquivo separado (css/styles.css): Flexbox + variáveis CSS.
+  - JavaScript puro, estilo ES5 (js/script.js): sem framework, sem build, sem npm.
+  - Fontes hospedadas no próprio site, pasta fonts/ (Staatliches nos títulos,
+    Manrope nos textos). Nenhum pedido a servidores externos.
+  - Hospedagem prevista: GitHub Pages (site 100% estático).
+
+  ARQUIVOS
+  - index.html      este arquivo: estrutura e textos da página
+  - css/fonts.css   declaração das fontes (arquivos em fonts/)
+  - css/styles.css  todo o visual: cores, tipografia, layout e responsivo
+  - js/script.js    menu mobile, rolagem suave e Diagnóstico 4D Express (quiz)
+  - fonts/          arquivos das fontes (.woff2) e suas licenças
+  - images/         logos (para fundo claro e para fundo escuro), ícones e fotos
+  - 404.html        página exibida quando o endereço não existe
+
+  ONDE EDITAR
+  - Textos: aqui, dentro de cada seção (cada uma tem um comentário no topo).
+  - Cores e fontes: css/styles.css, bloco :root no início do arquivo.
+  - Perguntas e resultados do quiz, número do WhatsApp: js/script.js.
+  - Fotos e logos: troque o arquivo em images/ mantendo o mesmo nome.
+  - Guia completo no README.md.
+
+  LINKS EXTERNOS
+  - WhatsApp: link curto oficial da Expanding English (repetido em 5 pontos
+    desta página; para trocar, use localizar e substituir).
+  - Instagram: @southaynaguimaraes (no rodapé).
+  ============================================================================
+-->
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expanding English — Diagnóstico e Performance em Inglês</title>
+  <meta name="description" content="Não é escola de inglês. É diagnóstico e performance comunicativa para profissionais que precisam que o inglês funcione quando mais importa.">
+  <meta name="theme-color" content="#0B3459">
+
+  <!-- Pré-visualização ao compartilhar o link (WhatsApp, LinkedIn, redes sociais) -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Expanding English — Diagnóstico e Performance em Inglês">
+  <meta property="og:description" content="Não é escola de inglês. É diagnóstico e performance comunicativa para profissionais que precisam que o inglês funcione quando mais importa.">
+  <link rel="canonical" href="https://www.expandingenglish.com.br/">
+  <meta property="og:site_name" content="Expanding English">
+  <meta property="og:url" content="https://www.expandingenglish.com.br/">
+  <meta property="og:image" content="https://www.expandingenglish.com.br/images/og-expanding-english.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Dados estruturados (ajudam o Google a entender quem é a empresa). -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Expanding English",
+    "url": "https://www.expandingenglish.com.br/",
+    "logo": "https://www.expandingenglish.com.br/images/icon.png",
+    "image": "https://www.expandingenglish.com.br/images/og-expanding-english.jpg",
+    "description": "Diagnóstico e desenvolvimento de performance comunicativa em inglês.",
+    "founder": { "@type": "Person", "name": "Thayná Guimarães" },
+    "sameAs": [
+      "https://instagram.com/southaynaguimaraes",
+      "https://www.linkedin.com/in/thaynaguimaraes/",
+      "https://www.linkedin.com/company/expandingenglish/"
+    ]
+  }
+  </script>
+
+  <!-- Ícone da aba do navegador -->
+  <link rel="icon" type="image/png" href="images/icon.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+  <!-- Fontes hospedadas no próprio site (declaradas em css/fonts.css) -->
+  <link rel="preload" href="fonts/staatliches-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/fonts.css">
+
+  <!-- Estilos do site -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- Atalho para quem navega por teclado ou leitor de tela: só aparece ao receber foco -->
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<!--
+  ============================================================================
+  1. CABEÇALHO / MENU (fixo no topo)
+  Os itens do menu são botões que rolam até a seção (função scrollToSection,
+  em js/script.js). No celular, o botão hambúrguer abre e fecha o menu.
+  Logo com texto preto, para fundo claro: images/logo-light.png
+  ============================================================================
+-->
+<header>
+  <nav class="wrap">
+    <div class="logo"><img src="images/logo-light.png" alt="Expanding English" width="480" height="136"></div>
+    <div class="navlinks" id="navlinks">
+      <button type="button" class="navlink" onclick="scrollToSection('metodo')">Método</button>
+      <button type="button" class="navlink" onclick="scrollToSection('diagnostico')">Diagnóstico</button>
+      <button type="button" class="navlink" onclick="scrollToSection('programas')">Programas</button>
+      <button type="button" class="navlink" onclick="scrollToSection('empresas')">Empresas</button>
+      <button type="button" class="navlink" onclick="scrollToSection('contato')">Contato</button>
+    </div>
+    <div class="navcta">
+      <button type="button" class="btn btn-ghost" onclick="scrollToSection('diagnostico')">Fazer diagnóstico</button>
+      <button type="button" class="navtoggle" id="navtoggle" aria-label="Abrir menu" aria-expanded="false"><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<main id="conteudo" tabindex="-1">
+
+<!--
+  ============================================================================
+  2. HERO (primeira dobra)
+  Promessa principal + dois botões (quiz e WhatsApp) + foto da fundadora.
+  O selo "10+" fica sobre a foto (some no celular).
+  Foto: images/hero-thayna.jpg
+  ============================================================================
+-->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow">Diagnóstico e performance em inglês</span>
+      <h1>O problema não é <em>o seu inglês.</em></h1>
+      <p class="lead">É a forma como ele foi construído. Existem só 3 motivos reais pra você travar bem na hora que mais importa — e cada um pede um caminho diferente. A gente descobre qual é o seu antes de indicar qualquer coisa.</p>
+      <div class="hero-ctas">
+        <button type="button" class="btn btn-primary" onclick="scrollToSection('diagnostico')">Descobrir meu perfil — grátis, 2 min →</button>
+        <a href="https://wa.me/message/PNPG6EUVRORQC1" target="_blank" rel="noopener" class="btn btn-ghost-dark">Conversar com a Expanding English</a>
+      </div>
+      <p class="hero-note">Sem promessa de fluência. Sem "aula experimental". Diagnóstico antes de prescrição — sempre.</p>
+    </div>
+    <div class="hero-photo">
+      <div class="hero-badge"><span class="n">10+</span>anos observando por que o inglês trava sob pressão</div>
+      <img src="images/hero-thayna.jpg" alt="Thayná Guimarães, fundadora da Expanding English" width="799" height="1065" fetchpriority="high">
+    </div>
+  </div>
+</section>
+
+<!--
+  ============================================================================
+  3. MANIFESTO
+  Frase de posicionamento (esquerda) + texto de apoio (direita).
+  ============================================================================
+-->
+<section id="manifesto">
+  <div class="wrap manifesto">
+    <blockquote>O mercado de inglês ensina <span>idioma.</span><br>A Expanding English resolve <span>problema.</span></blockquote>
+    <div class="m-body">
+      <p>Não existe fluência genérica. Existe inglês que funciona na reunião de segunda, na entrevista de terça, na apresentação de quarta.</p>
+      <p>Você não precisa de mais conteúdo. Precisa saber exatamente onde trava e por quê — e isso não se descobre com mais uma aula. Se descobre com diagnóstico.</p>
+      <p>Por isso a gente nunca começa pela aula. Começa sempre pelo D1: Diagnóstico.</p>
+    </div>
+  </div>
+</section>
+
+<!--
+  ============================================================================
+  4. DIAGNÓSTICO 4D EXPRESS (quiz interativo)
+  Só a moldura fica aqui. As perguntas e os 3 resultados (Estrutura Travada,
+  Contexto Errado, Bloqueio Disfarçado) são montados por js/script.js, que
+  preenche os elementos com id diagProgress, diagQLabel, diagQ, diagOpts e
+  resultTag, resultTitle, resultBody, resultCta.
+  O botão do resultado (resultCta) leva ao WhatsApp com mensagem pronta.
+  ============================================================================
+-->
+<section id="diagnostico" class="navy-section">
+  <div class="wrap diag-head">
+    <span class="eyebrow">Diagnóstico 4D Express</span>
+    <h2>Qual dos 3 perfis é o seu?</h2>
+    <p>5 perguntas rápidas. No final, você sai sabendo exatamente qual dos 3 motivos reais está travando o seu inglês — e já fala com a equipe no WhatsApp.</p>
+  </div>
+  <div class="wrap">
+    <div class="diag-card">
+      <div class="diag-quiz" id="diagQuiz">
+        <div class="diag-progress" id="diagProgress"></div>
+        <div class="diag-q-label" id="diagQLabel">Pergunta 1 de 5</div>
+        <div class="diag-q" id="diagQ" tabindex="-1"></div>
+        <div class="diag-opts" id="diagOpts"></div>
+        <noscript><p class="diag-noscript">O diagnóstico precisa de JavaScript ativado. Se preferir, <a href="https://wa.me/message/PNPG6EUVRORQC1" target="_blank" rel="noopener">converse direto com a Expanding English</a>.</p></noscript>
+      </div>
+      <!--
+        ETAPA DE CONTATO — vem ANTES das perguntas (só aparece se LEAD_ENDPOINT estiver
+        preenchido em js/script.js). Nome, WhatsApp e e-mail obrigatórios, para o contato
+        já ficar salvo mesmo se a pessoa abandonar o quiz no meio. Dois consentimentos
+        separados: o 1º é necessário; o 2º (conteúdos) é opcional e começa desmarcado.
+        Nenhuma caixa vem marcada por padrão.
+      -->
+      <form class="diag-lead" id="diagLead" novalidate>
+        <div class="diag-q-label">Antes de começar</div>
+        <div class="diag-q" id="diagLeadTitle" tabindex="-1">Para onde enviamos o seu resultado?</div>
+        <p class="lead-intro">Você responde 5 perguntas, vê seu perfil de trava na hora e já pode falar com a equipe da Expanding English no WhatsApp.</p>
+
+        <div class="field">
+          <label for="leadName">Seu nome</label>
+          <input type="text" id="leadName" name="nome" autocomplete="name" maxlength="100" required>
+        </div>
+        <div class="field">
+          <label for="leadPhone">WhatsApp (com DDD)</label>
+          <input type="tel" id="leadPhone" name="whatsapp" inputmode="tel" autocomplete="tel" placeholder="(62) 90000-0000" maxlength="20" required>
+        </div>
+        <div class="field">
+          <label for="leadEmail">E-mail</label>
+          <input type="email" id="leadEmail" name="email" autocomplete="email" maxlength="120" required>
+        </div>
+        <!-- Campo-isca contra robôs: invisível para pessoas; se vier preenchido, o envio é descartado -->
+        <div class="hp" aria-hidden="true"><label>Não preencha este campo <input type="text" id="leadWebsite" name="website" tabindex="-1" autocomplete="off"></label></div>
+
+        <label class="check"><input type="checkbox" id="leadConsent">
+          <span>Li a <a href="privacidade/index.html" target="_blank" rel="noopener">Política de Privacidade</a> e autorizo a Expanding English a usar meu nome, contato e respostas para me retornar sobre o diagnóstico.</span></label>
+        <label class="check"><input type="checkbox" id="leadMarketing">
+          <span><span class="opt">(opcional)</span> Quero receber conteúdos e novidades da Expanding English por WhatsApp ou e-mail. Posso cancelar quando quiser.</span></label>
+
+        <p class="lead-age">Este diagnóstico é para maiores de 18 anos. Se você é menor de idade, peça a um responsável para preencher.</p>
+        <p class="lead-error" id="leadError" role="alert"></p>
+
+        <button type="submit" class="btn btn-primary" id="leadSubmit">Começar o diagnóstico</button>
+      </form>
+
+      <div class="diag-result" id="diagResult">
+        <span class="tag" id="resultTag"></span>
+        <h3 id="resultTitle" tabindex="-1"></h3>
+        <p id="resultBody"></p>
+        <p class="diag-note" id="resultNote" role="status" hidden></p>
+        <a href="https://wa.me/message/PNPG6EUVRORQC1" target="_blank" rel="noopener" class="btn btn-primary" id="resultCta">Quero entender isso a fundo</a>
+        <!-- Contagem para abrir o WhatsApp sozinho (js/script.js, WHATSAPP_AUTO_OPEN_SECONDS). Sempre cancelável. -->
+        <p class="diag-auto" id="resultAuto" role="status" hidden>
+          <span aria-hidden="true">Abrindo o WhatsApp em <b id="autoSecs">8</b> s…</span>
+          <span class="sr-only">O WhatsApp vai abrir em alguns segundos. Use o botão Cancelar para ficar nesta página.</span>
+          <button type="button" class="diag-restart" id="autoCancel">Cancelar</button>
+        </p>
+        <div><button type="button" class="diag-restart" id="diagRestart">Refazer o diagnóstico</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--
+  ============================================================================
+  5. MÉTODO 4D
+  Quatro cards: D1 Diagnóstico, D2 Direção, D3 Desenvolvimento, D4 Desempenho.
+  Para mudar um passo, edite o card correspondente (mesma estrutura nos 4).
+  ============================================================================
+-->
+<section id="metodo" class="mist">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Como funciona</span>
+      <h2>O Método 4D</h2>
+      <p>Diagnóstico, Direção, Desenvolvimento, Desempenho — nessa ordem, sempre. Pular uma etapa é o motivo pelo qual a maioria estuda inglês por anos e continua travando nos mesmos lugares.</p>
+    </div>
+    <div class="method-grid">
+      <div class="method-card"><span class="d">D1</span><h3>Diagnóstico</h3><p>Identificar o que trava de verdade — não em geral, no seu caso específico. Antes de qualquer prescrição.</p></div>
+      <div class="method-card"><span class="d">D2</span><h3>Direção</h3><p>Construir a trilha certa pro seu objetivo real. Nunca currículo padrão.</p></div>
+      <div class="method-card"><span class="d">D3</span><h3>Desenvolvimento</h3><p>Desenvolver a competência com acompanhamento real, checkpoint a cada 30 dias.</p></div>
+      <div class="method-card"><span class="d">D4</span><h3>Desempenho</h3><p>Validar que o inglês funciona na situação real que importa — com pressão, em tempo real.</p></div>
+    </div>
+  </div>
+</section>
+
+<!--
+  ============================================================================
+  6. PROGRAMAS (portfólio)
+  Seis cards com a mesma estrutura: rótulo (.k), título (h3), descrição (p) e
+  valor (.prog-price). Decisão de posicionamento: nenhum card mostra preço,
+  todos dizem "Sob consulta". O card com a classe "featured" é o de fundo
+  escuro (destaque). Para adicionar um programa, copie um card inteiro.
+  ============================================================================
+-->
+<section id="programas">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Portfólio</span>
+      <h2>Do primeiro passo ao mais alto risco</h2>
+      <p>Do zero — do jeito certo — até o executivo que apresenta pra board lá fora. O nível muda. O diagnóstico primeiro, não.</p>
+    </div>
+    <div class="prog-grid">
+      <div class="prog-card">
+        <span class="k">Individual</span>
+        <h3>ESSENTIAL / EXCEPTIONAL / EXPERT</h3>
+        <p>Programas 1:1 por nível — de base (A2–B1) a alta performance e certificação (B2–C1). Assessment incluído como sessão 1.</p>
+        <div class="prog-price">Sob consulta<small>calibrado no Assessment</small></div>
+      </div>
+      <div class="prog-card featured">
+        <span class="k">Alto risco · avulso</span>
+        <h3>Simulação de Entrevista &amp; Prova Oral</h3>
+        <p>Sessão única de 90–120 min de simulação sob pressão real — entrevista de emprego, processo seletivo internacional, intercâmbio ou visto, prova oral de certificação (IELTS, Cambridge, TOEFL), apresentação ou Q&amp;A em inglês. Diagnóstico embutido, adaptado ao seu tipo de situação.</p>
+        <div class="prog-price">Sob consulta</div>
+      </div>
+      <div class="prog-card">
+        <span class="k">Grupo</span>
+        <h3>Inglês de Decisão</h3>
+        <p>Intensivo em grupo fechado, 8 semanas, 6–10 pessoas, com devolutiva individual em vídeo ao final.</p>
+        <div class="prog-price">Sob consulta</div>
+      </div>
+      <div class="prog-card">
+        <span class="k">13 a 17 anos</span>
+        <h3>Adolescentes Premium</h3>
+        <p>Mais estrutura e rigor que criança, sem ainda ser a aposta de carreira do adulto. Construção de base com continuidade real.</p>
+        <div class="prog-price">Sob consulta</div>
+      </div>
+      <div class="prog-card">
+        <span class="k">Certificação internacional</span>
+        <h3>IELTS · TOEFL · Cambridge · TOEIC · Pearson</h3>
+        <p>Diagnóstico de lacuna antes de começar. Trilha pela lacuna real — não pelo livro padrão.</p>
+        <div class="prog-price">Sob consulta</div>
+      </div>
+      <div class="prog-card">
+        <span class="k">Acompanhamento contínuo</span>
+        <h3>Acompanhamento Semanal — Simulação</h3>
+        <p>1 sessão de 60 min por semana, com simulação de alto risco. Pra quem tem um evento real se aproximando e quer ritmo fixo.</p>
+        <div class="prog-price">Sob consulta</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--
+  ============================================================================
+  7. EMPRESAS (B2B)
+  Coluna da esquerda: argumento + 3 pontos numerados.
+  Coluna da direita: cartão com Workshop Corporativo e Palestra Institucional
+  + botão de WhatsApp.
+  ============================================================================
+-->
+<section id="empresas" class="mist">
+  <div class="wrap biz">
+    <div>
+      <span class="eyebrow">Para empresas</span>
+      <h2>Sua equipe não perde só vocabulário.<br>Perde clareza, agilidade e credibilidade.</h2>
+      <ul class="biz-list">
+        <li><b>01</b> Diagnóstico coletivo antes de qualquer conteúdo — nunca currículo padrão pra sala cheia.</li>
+        <li><b>02</b> Formato aplicado ao contexto real da equipe — reunião, atendimento, negociação internacional.</li>
+        <li><b>03</b> Relatório e recomendação de continuidade ao final — não é palestra e ponto final.</li>
+      </ul>
+    </div>
+    <div class="biz-card">
+      <h3>Workshop Corporativo</h3>
+      <p>60–120 min, presencial ou online. Contexto → diagnóstico coletivo → conteúdo aplicado → prática → próximos passos.</p>
+      <h3>Palestra Institucional</h3>
+      <p>45–60 min. Autoridade + geração de leads B2B, pra evento, congresso ou RH.</p>
+      <a href="https://wa.me/message/PNPG6EUVRORQC1" target="_blank" rel="noopener" class="btn btn-primary">Conversar sobre a equipe</a>
+      <a href="empresas/index.html" class="btn btn-ghost">Ver formatos e como funciona</a>
+    </div>
+  </div>
+</section>
+
+<!--
+  ============================================================================
+  8. CASES (prova social)
+  Três cards: perfil, situação e resultado (frase em destaque, classe .result).
+  Mesma estrutura nos três: copie um card para adicionar outro.
+  ============================================================================
+-->
+<section id="cases">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Prova, não promessa</span>
+      <h2>O que muda quando o problema certo é tratado</h2>
+    </div>
+    <div class="case-grid">
+      <div class="case-card">
+        <span class="case-tag">Gestora · Operações</span>
+        <p>Competente, liderava equipe — e sumia toda vez que a reunião virava em inglês. Cinco meses de trabalho em estrutura mental, não em vocabulário novo.</p>
+        <div class="result">"Me ouvi falando e não reconheci a própria voz — no bom sentido."</div>
+      </div>
+      <div class="case-card">
+        <span class="case-tag">RH · Processo seletivo internacional</span>
+        <p>Sabia a resposta, não conseguia formulá-la no ritmo que a entrevista final exigia. Seis sessões focadas em reorganização da resposta oral sob tempo.</p>
+        <div class="result">Aprovada — comunicação elogiada como clara pelo recrutador.</div>
+      </div>
+      <div class="case-card">
+        <span class="case-tag">Seleção internacional · 3ª tentativa</span>
+        <p>Inglês passivo muito forte, inglês ativo travado havia anos. Diagnóstico identificou o gap exato entre entender e produzir sob pressão.</p>
+        <div class="result">Aprovado — mensagem enviada às 23h do próprio dia.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--
+  ============================================================================
+  9. SOBRE (fundadora)
+  Foto (esquerda) + história e 3 números de credencial (direita).
+  Foto: images/about-thayna.jpg
+  ============================================================================
+-->
+<section id="sobre" class="mist">
+  <div class="wrap about">
+    <div class="about-photo"><img src="images/about-thayna.jpg" alt="Thayná Guimarães na Expanding English" width="799" height="1065" loading="lazy"></div>
+    <div>
+      <span class="eyebrow">Quem diagnostica</span>
+      <h2>Thayná Guimarães</h2>
+      <p>Formada em Direito. Fez tudo que se esperava — faculdade, estágio, OAB, primeiro escritório. E percebeu que o que mais queria entender não era lei: era por que o inglês de gente competente falhava exatamente na hora que mais importava.</p>
+      <p>O raciocínio analítico da advocacia virou o método de diagnóstico da Expanding English. Não vende aula — vende diagnóstico, direção, desenvolvimento e desempenho, com programas construídos pro caso específico de cada pessoa.</p>
+      <div class="about-creds">
+        <div><b>10+</b><span>anos observando padrões</span></div>
+        <div><b>3</b><span>perfis de trava nomeados</span></div>
+        <div><b>4D</b><span>método proprietário</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--
+  ============================================================================
+  10. CONTATO / CTA FINAL
+  Último convite: quiz ou conversa direta no WhatsApp.
+  ============================================================================
+-->
+<section id="contato" class="navy-section final-cta">
+  <div class="wrap">
+    <h2>O inglês que trava na hora que importa não pede mais estudo.<br>Pede diagnóstico certo.</h2>
+    <p>Dois minutos agora, ou uma conversa direta comigo — você escolhe por onde começar.</p>
+    <div class="final-ctas">
+      <button type="button" class="btn btn-primary" onclick="scrollToSection('diagnostico')">Fazer o diagnóstico grátis</button>
+      <a href="https://wa.me/message/PNPG6EUVRORQC1" target="_blank" rel="noopener" class="btn btn-ghost-dark">Conversar com a Expanding English</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!--
+  ============================================================================
+  11. RODAPÉ
+  Decisão de projeto: só o essencial (logo, Instagram, WhatsApp e direitos).
+  Sem nome completo, endereço ou dados cadastrais da empresa na página.
+  O ano do © é preenchido automaticamente pelo js/script.js (span id="year").
+  Logo com texto branco, para fundo escuro: images/logo-dark.png
+  ============================================================================
+-->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="logo"><img src="images/logo-dark.png" alt="Expanding English" width="480" height="136" loading="lazy"></div>
+      <div class="foot-links">
+        <a href="https://instagram.com/southaynaguimaraes" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://wa.me/message/PNPG6EUVRORQC1" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+    <div class="foot-legal">
+      © <span id="year"></span> Expanding English. Diagnóstico e performance comunicativa em inglês.<br>
+      <a href="privacidade/index.html">Privacidade</a> · <a href="termos/index.html">Termos de Uso</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Script do site (carregado por último para o HTML já existir quando ele rodar) -->
+<script src="js/script.js"></script>
+</body>
+</html>

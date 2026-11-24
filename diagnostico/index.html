@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diagnóstico 4D Express — descubra por que o seu inglês trava | Expanding English</title>
+  <meta name="description" content="Responda 5 perguntas e descubra qual dos 3 perfis de trava está por trás do seu inglês: Estrutura Travada, Contexto Errado ou Bloqueio Disfarçado. Gratuito, leva 2 minutos.">
+  <meta name="theme-color" content="#0B3459">
+  <link rel="canonical" href="https://www.expandingenglish.com.br/diagnostico/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Expanding English">
+  <meta property="og:title" content="Diagnóstico 4D Express — qual é o seu perfil de trava?">
+  <meta property="og:description" content="Responda 5 perguntas e descubra qual dos 3 perfis de trava está por trás do seu inglês: Estrutura Travada, Contexto Errado ou Bloqueio Disfarçado. Gratuito, leva 2 minutos.">
+  <meta property="og:url" content="https://www.expandingenglish.com.br/diagnostico/">
+  <meta property="og:image" content="https://www.expandingenglish.com.br/images/og-expanding-english.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <link rel="icon" type="image/png" href="../images/icon.png">
+  <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+  <link rel="preload" href="../fonts/staatliches-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../css/fonts.css">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/landing.css">
+</head>
+<body>
+
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<!--
+  CABEÇALHO: só logo e botões (página de destino, sem menu de seções).
+-->
+<header class="lp-head">
+  <nav class="wrap">
+    <a class="logo" href="../index.html" aria-label="Expanding English — página inicial"><img src="../images/logo-light.png" alt="Expanding English" width="480" height="136"></a>
+    <div class="navcta">
+      <a class="btn btn-ghost" href="../index.html">Conhecer o site</a>
+      <button type="button" class="btn btn-primary" onclick="scrollToSection('diagnostico')">Fazer o diagnóstico</button>
+    </div>
+  </nav>
+</header>
+
+<main id="conteudo" tabindex="-1">
+
+<!--
+  ============================================================================
+  1. QUIZ NA PRIMEIRA DOBRA
+  A moldura do quiz é a mesma do index.html (mesmos ids). As perguntas, os
+  resultados, o WhatsApp e o envio do contato ficam em js/script.js.
+  ============================================================================
+-->
+<section id="diagnostico" class="navy-section">
+  <div class="wrap diag-head">
+    <span class="eyebrow">Diagnóstico 4D Express · gratuito</span>
+    <h1>Por que o seu inglês trava justo na hora que importa?</h1>
+    <p>5 perguntas, 2 minutos. Você descobre na hora qual dos 3 perfis de trava é o seu e já pode falar com a equipe da Expanding English no WhatsApp.</p>
+  </div>
+  <div class="wrap">
+    <div class="diag-card">
+      <div class="diag-quiz" id="diagQuiz">
+        <div class="diag-progress" id="diagProgress"></div>
+        <div class="diag-q-label" id="diagQLabel">Pergunta 1 de 5</div>
+        <div class="diag-q" id="diagQ" tabindex="-1"></div>
+        <div class="diag-opts" id="diagOpts"></div>
+        <noscript><p class="diag-noscript">O diagnóstico precisa de JavaScript ativado. Se preferir, <a href="https://wa.me/message/PNPG6EUVRORQC1" target="_blank" rel="noopener">converse direto com a Expanding English</a>.</p></noscript>
+      </div>
+      <!--
+        ETAPA DE CONTATO — vem ANTES das perguntas (só aparece se LEAD_ENDPOINT estiver
+        preenchido em js/script.js). Nome, WhatsApp e e-mail obrigatórios, para o contato
+        já ficar salvo mesmo se a pessoa abandonar o quiz no meio. Dois consentimentos
+        separados: o 1º é necessário; o 2º (conteúdos) é opcional e começa desmarcado.
+        Nenhuma caixa vem marcada por padrão.
+      -->
+      <form class="diag-lead" id="diagLead" novalidate>
+        <div class="diag-q-label">Antes de começar</div>
+        <div class="diag-q" id="diagLeadTitle" tabindex="-1">Para onde enviamos o seu resultado?</div>
+        <p class="lead-intro">Você responde 5 perguntas, vê seu perfil de trava na hora e já pode falar com a equipe da Expanding English no WhatsApp.</p>
+
+        <div class="field">
+          <label for="leadName">Seu nome</label>
+          <input type="text" id="leadName" name="nome" autocomplete="name" maxlength="100" required>
+        </div>
+        <div class="field">
+          <label for="leadPhone">WhatsApp (com DDD)</label>
+          <input type="tel" id="leadPhone" name="whatsapp" inputmode="tel" autocomplete="tel" placeholder="(62) 90000-0000" maxlength="20" required>
+        </div>
+        <div class="field">
+          <label for="leadEmail">E-mail</label>
+          <input type="email" id="leadEmail" name="email" autocomplete="email" maxlength="120" required>
+        </div>
+        <!-- Campo-isca contra robôs: invisível para pessoas; se vier preenchido, o envio é descartado -->
+        <div class="hp" aria-hidden="true"><label>Não preencha este campo <input type="text" id="leadWebsite" name="website" tabindex="-1" autocomplete="off"></label></div>
+
+        <label class="check"><input type="checkbox" id="leadConsent">
+          <span>Li a <a href="../privacidade/index.html" target="_blank" rel="noopener">Política de Privacidade</a> e autorizo a Expanding English a usar meu nome, contato e respostas para me retornar sobre o diagnóstico.</span></label>
+        <label class="check"><input type="checkbox" id="leadMarketing">
+          <span><span class="opt">(opcional)</span> Quero receber conteúdos e novidades da Expanding English por WhatsApp ou e-mail. Posso cancelar quando quiser.</span></label>
+
+        <p class="lead-age">Este diagnóstico é para maiores de 18 anos. Se você é menor de idade, peça a um responsável para preencher.</p>
+        <p class="lead-error" id="leadError" role="alert"></p>
+
+        <button type="submit" class="btn btn-primary" id="leadSubmit">Começar o diagnóstico</button>
+      </form>
+
+      <div class="diag-result" id="diagResult">
+        <span class="tag" id="resultTag"></span>
+        <h3 id="resultTitle" tabindex="-1"></h3>
+        <p id="resultBody"></p>
+        <p class="diag-note" id="resultNote" role="status" hidden></p>
+        <a href="https://wa.me/message/PNPG6EUVRORQC1" target="_blank" rel="noopener" class="btn btn-primary" id="resultCta">Quero entender isso a fundo</a>
+        <!-- Contagem para abrir o WhatsApp sozinho (js/script.js, WHATSAPP_AUTO_OPEN_SECONDS). Sempre cancelável. -->
+        <p class="diag-auto" id="resultAuto" role="status" hidden>
+          <span aria-hidden="true">Abrindo o WhatsApp em <b id="autoSecs">8</b> s…</span>
+          <span class="sr-only">O WhatsApp vai abrir em alguns segundos. Use o botão Cancelar para ficar nesta página.</span>
+          <button type="button" class="diag-restart" id="autoCancel">Cancelar</button>
+        </p>
+        <div><button type="button" class="diag-restart" id="diagRestart">Refazer o diagnóstico</button></div>
+      </div>
+    </div>
+  </div>
+  <p class="wrap lp-trust">Gratuito · resultado na hora · sem promessa de fluência</p>
+</section>
+
+<!--
+  ============================================================================
+  2. OS 3 PERFIS DE TRAVA
+  ============================================================================
+-->
+<section id="perfis" class="mist">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">O que o diagnóstico mostra</span>
+      <h2>Existem só 3 motivos reais pra você travar</h2>
+      <p>E cada um pede um caminho diferente. Por isso a gente descobre o seu antes de indicar qualquer coisa.</p>
+    </div>
+    <div class="method-grid steps">
+      <div class="method-card"><span class="d">01</span><h3>Estrutura Travada</h3><p>Você sabe montar a frase. Ela só não vem rápido o suficiente. O inglês está lá, mas não foi treinado para o ritmo da conversa real.</p></div>
+      <div class="method-card"><span class="d">02</span><h3>Contexto Errado</h3><p>Seu inglês funciona. Só não no contexto onde você mais precisa dele: foi construído para consumo individual, não para resposta em tempo real.</p></div>
+      <div class="method-card"><span class="d">03</span><h3>Bloqueio Disfarçado</h3><p>Você sabe mais inglês do que demonstra. O medo de errar chega antes da palavra e ocupa o espaço.</p></div>
+    </div>
+    <p class="lp-note">Não é falta de vocabulário, nem de esforço. É uma trava específica, e ela tem solução específica.</p>
+  </div>
+</section>
+
+<!--
+  ============================================================================
+  3. COMO FUNCIONA
+  ============================================================================
+-->
+<section id="como-funciona">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Como funciona</span>
+      <h2>Três passos, dois minutos</h2>
+    </div>
+    <div class="method-grid steps">
+      <div class="method-card"><span class="d">1</span><h3>Responda 5 perguntas</h3><p>Sobre o que acontece quando você precisa falar inglês de verdade: reunião, entrevista, apresentação.</p></div>
+      <div class="method-card"><span class="d">2</span><h3>Veja seu perfil na hora</h3><p>O resultado aparece na tela, com a explicação do que está travando o seu inglês.</p></div>
+      <div class="method-card"><span class="d">3</span><h3>Converse com a equipe</h3><p>Se fizer sentido, você segue para o WhatsApp com o resultado já na mensagem. É o primeiro passo do Método 4D: o D1, Diagnóstico.</p></div>
+    </div>
+  </div>
+</section>
+
+<!--
+  ============================================================================
+  4. QUEM DIAGNOSTICA (mesmo texto do index.html)
+  ============================================================================
+-->
+<section id="sobre" class="mist">
+  <div class="wrap about">
+    <div class="about-photo"><img src="../images/about-thayna.jpg" alt="Thayná Guimarães na Expanding English" width="799" height="1065" loading="lazy"></div>
+    <div>
+      <span class="eyebrow">Quem diagnostica</span>
+      <h2>Thayná Guimarães</h2>
+      <p>Formada em Direito. Fez tudo que se esperava — faculdade, estágio, OAB, primeiro escritório. E percebeu que o que mais queria entender não era lei: era por que o inglês de gente competente falhava exatamente na hora que mais importava.</p>
+      <p>O raciocínio analítico da advocacia virou o método de diagnóstico da Expanding English: diagnóstico, direção, desenvolvimento e desempenho, com programas construídos pro caso específico de cada pessoa.</p>
+      <div class="about-creds">
+        <div><b>10+</b><span>anos observando padrões</span></div>
+        <div><b>3</b><span>perfis de trava nomeados</span></div>
+        <div><b>4D</b><span>método proprietário</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--
+  ============================================================================
+  5. PERGUNTAS FREQUENTES
+  details/summary: abre e fecha sem JavaScript e funciona com teclado.
+  ============================================================================
+-->
+<section id="duvidas">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Dúvidas comuns</span>
+      <h2>Antes de começar</h2>
+    </div>
+    <div class="faq">
+      <details>
+        <summary>O diagnóstico tem custo?</summary>
+        <p>Não. O Diagnóstico 4D Express é gratuito e não pede cartão de crédito.</p>
+      </details>
+      <details>
+        <summary>Quanto tempo leva?</summary>
+        <p>Cerca de 2 minutos. São 5 perguntas de múltipla escolha.</p>
+      </details>
+      <details>
+        <summary>Preciso ter um nível mínimo de inglês?</summary>
+        <p>O diagnóstico é pensado para quem já estudou inglês e trava na hora de usar. Se você nunca estudou, o melhor é falar antes com a equipe pelo WhatsApp, para saber o ponto de partida certo.</p>
+      </details>
+      <details>
+        <summary>O resultado vale como avaliação completa?</summary>
+        <p>Não. É uma leitura preliminar, baseada nas suas respostas. Ela não substitui um diagnóstico completo, não é recomendação profissional definitiva e não é avaliação psicológica.</p>
+      </details>
+      <details>
+        <summary>O que acontece com os meus dados?</summary>
+        <p>Se você informar seu contato, usamos nome, WhatsApp, e-mail e respostas para retornar sobre o diagnóstico. Só enviamos conteúdos e novidades se você marcar essa opção. Os detalhes estão na <a href="../privacidade/index.html">Política de Privacidade</a>.</p>
+      </details>
+      <details>
+        <summary>Quem tem menos de 18 anos pode fazer?</summary>
+        <p>O diagnóstico do site é para maiores de 18 anos. Se você é menor de idade, peça a um responsável para preencher ou falar com a equipe.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!--
+  ============================================================================
+  6. CTA FINAL
+  ============================================================================
+-->
+<section id="contato" class="navy-section final-cta">
+  <div class="wrap">
+    <h2>Descubra o seu perfil de trava.</h2>
+    <p>É gratuito e leva 2 minutos. Ou, se preferir, uma conversa direta com a equipe.</p>
+    <div class="final-ctas">
+      <button type="button" class="btn btn-primary" onclick="scrollToSection('diagnostico')">Fazer o diagnóstico grátis</button>
+      <a href="https://wa.me/message/PNPG6EUVRORQC1" target="_blank" rel="noopener" class="btn btn-ghost-dark">Conversar com a Expanding English</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="logo"><img src="../images/logo-dark.png" alt="Expanding English" width="480" height="136" loading="lazy"></div>
+      <div class="foot-links">
+        <a href="https://instagram.com/southaynaguimaraes" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://wa.me/message/PNPG6EUVRORQC1" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="../empresas/index.html">Para empresas</a>
+      </div>
+    </div>
+    <div class="foot-legal">
+      © <span id="year"></span> Expanding English. Diagnóstico e performance comunicativa em inglês.<br>
+      <a href="../privacidade/index.html">Privacidade</a> · <a href="../termos/index.html">Termos de Uso</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/script.js"></script>
+</body>
+</html>

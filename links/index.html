@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  EXPANDING ENGLISH — Página de links (o "link na bio" do Instagram)
+  ============================================================================
+
+  PARA QUE SERVE
+  - É a página que abre quando alguém toca no link do perfil
+    @southaynaguimaraes no Instagram: apresentação curta + todos os canais.
+
+  ONDE ESTE ARQUIVO FICA
+  - links/index.html (dentro da pasta links, ao lado do index.html do site, que
+    é outro arquivo). Os caminhos abaixo começam com ../ por causa dessa pasta.
+
+  TECNOLOGIAS
+  - HTML5 + CSS3 (css/bio.css). Sem JavaScript, sem framework, sem build.
+  - Fontes: Staatliches e Manrope, hospedadas no próprio site (pasta fonts/,
+    declaradas em css/fonts.css), as mesmas do site.
+  - Ícones: sprite SVG embutido logo abaixo (Feather Icons, licença MIT).
+  - Hospedagem prevista: GitHub Pages, junto com o site. Endereço depois de
+    publicar: https://www.expandingenglish.com.br/links/
+
+  ARQUIVOS USADOS
+  - css/fonts.css, css/bio.css, images/logo-dark.png, images/avatar-thayna.jpg,
+    images/icon.png, images/apple-touch-icon.png
+  - Os links "Descobrir meu perfil" e "Conhecer o site" levam ao index.html
+    do site (pasta de cima).
+
+  ONDE EDITAR
+  - Textos e links: neste arquivo (cada bloco tem um comentário no topo).
+  - E-mails: seção 3, no atributo href (mailto:) e no texto do botão.
+  - LinkedIn: seção 3, no atributo href do botão.
+  - Cores e tamanhos: css/bio.css.
+  - Guia completo no README.md.
+  ============================================================================
+-->
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thayná Guimarães · Expanding English — Links</title>
+  <meta name="description" content="Diagnóstico e performance comunicativa em inglês. Descubra seu perfil de trava, fale com a Expanding English e acesse todos os canais.">
+  <meta name="theme-color" content="#082A47">
+
+  <!-- Pré-visualização ao compartilhar o link (WhatsApp, LinkedIn, redes sociais) -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Thayná Guimarães · Expanding English">
+  <meta property="og:description" content="Diagnóstico e performance comunicativa em inglês. Descubra seu perfil de trava e fale com a Expanding English.">
+  <link rel="canonical" href="https://www.expandingenglish.com.br/links/">
+  <meta property="og:site_name" content="Expanding English">
+  <meta property="og:url" content="https://www.expandingenglish.com.br/links/">
+  <meta property="og:image" content="https://www.expandingenglish.com.br/images/og-expanding-english.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <link rel="icon" type="image/png" href="../images/icon.png">
+  <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+
+  <!-- Fontes hospedadas no próprio site (declaradas em css/fonts.css) -->
+  <link rel="preload" href="../fonts/staatliches-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../css/fonts.css">
+
+  <!-- Estilos desta página -->
+  <link rel="stylesheet" href="../css/bio.css">
+</head>
+<body>
+
+<!--
+  ============================================================================
+  ÍCONES (sprite)
+  Cada símbolo é usado nos botões assim: svg com use href="#i-nome".
+  Cor, espessura e tamanho vêm de css/bio.css.
+  ============================================================================
+-->
+<svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-activity" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></symbol>
+  <symbol id="i-briefcase" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></symbol>
+  <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></symbol>
+  <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></symbol>
+  <symbol id="i-tiktok" viewBox="0 0 24 24"><path d="M16 3v11.5a4.5 4.5 0 1 1-4.5-4.5"></path><path d="M16 3c.3 2.6 2 4.4 5 4.6"></path></symbol>
+  <symbol id="i-youtube" viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></symbol>
+  <symbol id="i-arrow-right" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></symbol>
+  <symbol id="i-arrow-up-right" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></symbol>
+</svg>
+
+<main class="bio">
+
+  <!--
+    ==========================================================================
+    1. TOPO
+    Logo, foto, nome, cargo, frase de posicionamento e apresentação curta.
+    Foto: images/avatar-thayna.jpg (quadrada, a CSS deixa redonda).
+    ==========================================================================
+  -->
+  <header class="bio-top">
+    <img class="bio-logo" src="../images/logo-dark.png" alt="Expanding English" width="480" height="136">
+    <div class="bio-avatar"><img src="../images/avatar-thayna.jpg" alt="Thayná Guimarães" width="400" height="400"></div>
+    <h1>Thayná Guimarães</h1>
+    <p class="bio-role">Fundadora da Expanding English</p>
+    <p class="bio-pitch">O mercado de inglês ensina <span>idioma.</span><br>A Expanding English resolve <span>problema.</span></p>
+    <p class="bio-lead">Passei mais de 10 anos entendendo por que profissionais com bom nível de inglês ainda travam quando mais importa. E aprendi que o problema quase nunca é o que a pessoa pensa que é.</p>
+  </header>
+
+  <!--
+    ==========================================================================
+    2. AÇÕES PRINCIPAIS
+    1) Diagnóstico 4D Express: o quiz do site (index.html, seção diagnostico).
+    2) WhatsApp: link curto oficial da empresa.
+    3) Site completo.
+    ==========================================================================
+  -->
+  <nav class="links" aria-label="Ações principais">
+    <a class="link link-primary" href="../diagnostico/index.html?utm_source=instagram&amp;utm_medium=bio">
+      <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-activity"></use></svg></span>
+      <span class="txt"><span class="t">Descobrir meu perfil</span><span class="s">Diagnóstico 4D Express · grátis, 2 min</span></span>
+      <svg class="go" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+    </a>
+    <a class="link" href="https://wa.me/message/PNPG6EUVRORQC1" target="_blank" rel="noopener">
+      <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chat"></use></svg></span>
+      <span class="txt"><span class="t">Conversar com a Expanding English</span><span class="s">WhatsApp</span></span>
+      <svg class="go" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
+    </a>
+    <a class="link" href="../empresas/index.html">
+      <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-briefcase"></use></svg></span>
+      <span class="txt"><span class="t">Inglês para empresas</span><span class="s">Workshop, palestra e treinamento</span></span>
+      <svg class="go" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+    </a>
+    <a class="link" href="../index.html">
+      <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-globe"></use></svg></span>
+      <span class="txt"><span class="t">Conhecer o site</span><span class="s">Método 4D, programas e empresas</span></span>
+      <svg class="go" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+    </a>
+  </nav>
+
+  <!--
+    ==========================================================================
+    3. REDES E CONTATO
+    Instagram, TikTok, YouTube, LinkedIn e os dois e-mails.
+    E-mail: o texto "?subject=..." no href pré-preenche o assunto da mensagem.
+    ==========================================================================
+  -->
+  <h2 class="eyebrow group-label">Redes e contato</h2>
+  <nav class="links" aria-label="Redes e contato">
+    <a class="link" href="https://instagram.com/southaynaguimaraes" target="_blank" rel="noopener">
+      <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-instagram"></use></svg></span>
+      <span class="txt"><span class="t">Instagram</span><span class="s">@southaynaguimaraes</span></span>
+      <svg class="go" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
+    </a>
+    <a class="link" href="https://www.tiktok.com/@southaynaguimaraes" target="_blank" rel="noopener">
+      <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-tiktok"></use></svg></span>
+      <span class="txt"><span class="t">TikTok</span><span class="s">@southaynaguimaraes</span></span>
+      <svg class="go" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
+    </a>
+    <a class="link" href="https://www.youtube.com/@expandingenglish" target="_blank" rel="noopener">
+      <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-youtube"></use></svg></span>
+      <span class="txt"><span class="t">YouTube</span><span class="s">Expanding English</span></span>
+      <svg class="go" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
+    </a>
+    <!--
+      LINKEDIN (perfil profissional): perfil pessoal da Thayná, usado de forma empresarial, com acesso
+      à página da Expanding English. Para trocar o endereço, edite o href. Para
+      esconder o botão sem apagá-lo, escreva a palavra hidden na primeira linha
+      do link (logo depois de class="link").
+    -->
+    <a class="link" href="https://www.linkedin.com/in/thaynaguimaraes/" target="_blank" rel="noopener">
+      <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-linkedin"></use></svg></span>
+      <span class="txt"><span class="t">LinkedIn · Thayná Guimarães</span><span class="s">Perfil profissional</span></span>
+      <svg class="go" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
+    </a>
+    <a class="link" href="https://www.linkedin.com/company/expandingenglish/" target="_blank" rel="noopener">
+      <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-linkedin"></use></svg></span>
+      <span class="txt"><span class="t">LinkedIn · Expanding English</span><span class="s">Página da empresa</span></span>
+      <svg class="go" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
+    </a>
+    <a class="link" href="mailto:expandingenglishschool@gmail.com?subject=Contato%20pelo%20Instagram">
+      <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-mail"></use></svg></span>
+      <span class="txt"><span class="t">E-mail · Expanding English</span><span class="s">expandingenglishschool<wbr>@gmail.com</span></span>
+      <svg class="go" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
+    </a>
+    <a class="link" href="mailto:assessoriathaynaguimaraes@gmail.com?subject=Contato%20pelo%20Instagram">
+      <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-mail"></use></svg></span>
+      <span class="txt"><span class="t">E-mail · Assessoria Thayná Guimarães</span><span class="s">assessoriathaynaguimaraes<wbr>@gmail.com</span></span>
+      <svg class="go" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
+    </a>
+  </nav>
+
+  <!--
+    ==========================================================================
+    4. QUEM DIAGNOSTICA
+    Cartão branco com a história curta e as 3 credenciais (mesmos números do site).
+    ==========================================================================
+  -->
+  <section class="bio-card" aria-labelledby="quem">
+    <span class="eyebrow">Sobre</span>
+    <h2 id="quem">Quem diagnostica</h2>
+    <p>Antes da Expanding English, fui advogada. Fiz tudo que se esperava e percebi que o que eu mais queria entender não era lei: era por que o inglês de gente competente falha exatamente na hora que mais importa.</p>
+    <p>O raciocínio analítico do Direito virou o jeito como eu diagnostico. Não vendo aula: vendo diagnóstico, direção, desenvolvimento e desempenho, com programas construídos pro caso específico de cada pessoa.</p>
+    <div class="creds">
+      <div><b>10+</b><span>anos observando padrões</span></div>
+      <div><b>3</b><span>perfis de trava nomeados</span></div>
+      <div><b>4D</b><span>método proprietário</span></div>
+    </div>
+  </section>
+
+  <!--
+    ==========================================================================
+    5. MÉTODO 4D
+    Os quatro passos, sempre nesta ordem (mesmos nomes do site).
+    ==========================================================================
+  -->
+  <section class="bio-method" aria-labelledby="metodo">
+    <span class="eyebrow">Como funciona</span>
+    <h2 id="metodo">Método 4D</h2>
+    <ul class="method-list">
+      <li><span class="d">D1</span>Diagnóstico</li>
+      <li><span class="d">D2</span>Direção</li>
+      <li><span class="d">D3</span>Desenvolvimento</li>
+      <li><span class="d">D4</span>Desempenho</li>
+    </ul>
+    <p class="method-note">Nessa ordem. Sempre. Diagnóstico antes de prescrição.</p>
+  </section>
+
+  <!--
+    ==========================================================================
+    6. RODAPÉ
+    Só o essencial. Sem dados cadastrais da empresa.
+    ==========================================================================
+  -->
+  <footer class="bio-foot">
+    © Expanding English. Diagnóstico e performance comunicativa em inglês.<br>
+    <a href="../index.html">Ver o site completo</a> · <a href="../privacidade/index.html">Privacidade</a> · <a href="../termos/index.html">Termos</a>
+  </footer>
+
+</main>
+</body>
+</html>

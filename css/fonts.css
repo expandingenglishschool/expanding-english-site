@@ -1,0 +1,42 @@
+/* ==========================================================================
+   EXPANDING ENGLISH — css/fonts.css
+   Fontes hospedadas no próprio site (sem Google Fonts).
+
+   POR QUE: o Google Fonts fazia cada visitante enviar o IP ao Google só para
+   baixar a fonte. Hospedando aqui, o visual é idêntico, o site carrega mais
+   rápido e a política de privacidade fica mais simples (LGPD).
+
+   FONTES (licença SIL Open Font License 1.1; os textos estão em /fonts):
+     Staatliches (400)           -> títulos, números e destaques
+     Manrope (400,500,600,700,800) -> textos, botões e interface
+   Arquivos .woff2 no subconjunto "latin", que cobre todo o português
+   (acentos, cedilha, travessão, aspas, ·).
+
+   Os caminhos são relativos a ESTE arquivo (../fonts/), por isso funcionam
+   tanto no index.html quanto na página de links (links/index.html).
+   ========================================================================== */
+
+@font-face{
+  font-family:'Staatliches';font-style:normal;font-weight:400;font-display:swap;
+  src:url('../fonts/staatliches-latin-400-normal.woff2') format('woff2');
+}
+@font-face{
+  font-family:'Manrope';font-style:normal;font-weight:400;font-display:swap;
+  src:url('../fonts/manrope-latin-400-normal.woff2') format('woff2');
+}
+@font-face{
+  font-family:'Manrope';font-style:normal;font-weight:500;font-display:swap;
+  src:url('../fonts/manrope-latin-500-normal.woff2') format('woff2');
+}
+@font-face{
+  font-family:'Manrope';font-style:normal;font-weight:600;font-display:swap;
+  src:url('../fonts/manrope-latin-600-normal.woff2') format('woff2');
+}
+@font-face{
+  font-family:'Manrope';font-style:normal;font-weight:700;font-display:swap;
+  src:url('../fonts/manrope-latin-700-normal.woff2') format('woff2');
+}
+@font-face{
+  font-family:'Manrope';font-style:normal;font-weight:800;font-display:swap;
+  src:url('../fonts/manrope-latin-800-normal.woff2') format('woff2');
+}

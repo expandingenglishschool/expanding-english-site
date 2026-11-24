@@ -1,0 +1,95 @@
+/* ==========================================================================
+   EXPANDING ENGLISH — css/legal.css
+   Estilo das páginas legais: privacidade/index.html e termos/index.html.
+
+   TECNOLOGIA: CSS3 puro (variáveis + Flexbox), sem framework. As fontes vêm de
+   css/fonts.css. Mesmas cores do site (copiadas aqui para a página funcionar
+   sozinha; se mudar a cor da marca, mude também em css/styles.css e css/bio.css).
+
+   COMO EDITAR O TEXTO: abra privacidade/index.html ou termos/index.html. Cada
+   item numerado é um <h2> seguido de parágrafos (<p>), listas (<ul>) ou tabelas.
+   Depois de qualquer mudança, atualize a data "Última atualização" no topo.
+   ========================================================================== */
+
+:root{
+  --cyan:#00D7F1;
+  --teal-text:#1F7B94;
+  --navy:#195792;
+  --navy-deep:#0B3459;
+  --navy-deeper:#082A47;
+  --ink:#0A0E14;
+  --mist:#F1F8FA;
+  --line:rgba(10,14,20,0.14);
+  --line-on-dark:rgba(255,255,255,0.16);
+}
+
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  margin:0;background:#fff;color:var(--ink);
+  font-family:'Manrope',sans-serif;font-size:17px;line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;height:auto;display:block;}
+a{color:var(--navy);text-decoration:underline;text-underline-offset:3px;}
+a:focus-visible{outline:3px solid var(--cyan);outline-offset:3px;border-radius:2px;}
+
+/* Cabeçalho simples: logo + voltar ao site */
+.legal-head{border-bottom:1px solid var(--line);background:#fff;}
+.legal-head .in{
+  max-width:860px;margin:0 auto;padding:18px 24px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+}
+.legal-head img{height:32px;width:auto;}
+.legal-head a.back{font-size:14px;font-weight:700;text-decoration:none;color:var(--navy);}
+.legal-head a.back:hover{text-decoration:underline;}
+
+/* Conteúdo */
+.legal{max-width:860px;margin:0 auto;padding:48px 24px 72px;}
+.legal .eyebrow{
+  font-family:'Staatliches',sans-serif;letter-spacing:.14em;font-size:13px;
+  color:var(--teal-text);text-transform:uppercase;margin:0 0 10px;
+}
+.legal h1{
+  font-family:'Staatliches',sans-serif;font-weight:400;text-transform:uppercase;
+  font-size:clamp(34px,6vw,52px);line-height:1.05;color:var(--navy-deeper);margin:0 0 10px;
+}
+.legal .updated{font-size:14px;color:#4A5560;margin:0 0 36px;}
+.legal h2{
+  font-size:20px;line-height:1.3;font-weight:800;color:var(--navy-deeper);
+  margin:40px 0 12px;scroll-margin-top:16px;
+}
+.legal p{margin:0 0 16px;}
+.legal ul{margin:0 0 20px;padding-left:22px;}
+.legal li{margin-bottom:8px;}
+.legal .note{
+  background:var(--mist);border-left:4px solid var(--navy);border-radius:6px;
+  padding:14px 18px;margin:0 0 20px;font-size:15.5px;
+}
+.legal .note p{margin:0;}
+
+/* Tabelas: se alguma ficar larga demais, rola só dentro da caixa, nunca na página inteira */
+.table-wrap{overflow-x:auto;margin:0 0 24px;-webkit-overflow-scrolling:touch;}
+.legal table{border-collapse:collapse;width:100%;font-size:15px;line-height:1.55;}
+.legal th,.legal td{border:1px solid var(--line);padding:12px 14px;text-align:left;vertical-align:top;}
+.legal th{background:var(--mist);color:var(--navy-deeper);font-weight:800;}
+@media (max-width:680px){
+  /* No celular cada linha da tabela vira um bloco: a 1ª célula é o título e as
+     demais mostram o nome da coluna (vem do atributo data-label no HTML). */
+  .legal table,.legal tbody,.legal tr,.legal td{display:block;width:100%;}
+  .legal thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);}
+  .legal tr{border:1px solid var(--line);border-radius:8px;margin-bottom:14px;overflow:hidden;}
+  .legal td{border:none;padding:10px 14px;font-size:15px;}
+  .legal td:first-child{background:var(--mist);color:var(--navy-deeper);font-weight:800;}
+  .legal td[data-label]::before{
+    content:attr(data-label);display:block;margin-bottom:2px;
+    font-size:12px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#4A5560;
+  }
+}
+
+/* Link para a outra página legal */
+.legal .see-also{margin-top:48px;padding-top:24px;border-top:1px solid var(--line);font-size:15px;}
+
+/* Rodapé */
+.legal-foot{background:var(--navy-deeper);color:rgba(255,255,255,.62);font-size:13px;line-height:1.8;padding:32px 24px;text-align:center;}
+.legal-foot a{color:rgba(255,255,255,.85);}

@@ -1,0 +1,299 @@
+/* ==========================================================================
+   EXPANDING ENGLISH — css/bio.css
+   Estilos da página de links (links/index.html): o "link na bio" do Instagram.
+   ==========================================================================
+
+   TECNOLOGIAS
+   - CSS3 puro, sem framework e sem build. A página não usa JavaScript.
+   - Layout em Flexbox, coluna única, pensado primeiro para celular (o Instagram
+     abre o link no navegador interno do app).
+   - Fontes (hospedadas no site; declaradas em css/fonts.css):
+       Staatliches -> nome, frases de destaque e números
+       Manrope     -> textos e botões
+   - Acessibilidade: foco visível por teclado, botões com área de toque grande
+     (mínimo de 62px de altura) e respeito a "reduzir movimento".
+
+   ÍNDICE
+   1. Variáveis (cores da marca)
+   2. Base
+   3. Topo (logo, foto, nome, frase de posicionamento)
+   4. Botões de link
+   5. Rótulo de grupo
+   6. Cartão "Quem diagnostica"
+   7. Método 4D
+   8. Rodapé
+   9. Telas maiores
+   10. Acessibilidade
+
+   NOTAS DE MANUTENÇÃO
+   - As cores abaixo são uma cópia das variáveis de css/styles.css (o site).
+     Se mudar uma cor da marca, mude nos dois arquivos.
+   - Ícones: sprite SVG no início do HTML (traços do conjunto Feather Icons,
+     licença MIT). Para trocar um ícone, edite o símbolo correspondente.
+   - Comentário CSS não aceita comentário dentro de comentário.
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. VARIÁVEIS
+   ========================================================================== */
+:root{
+  --cyan:#00D7F1;          /* destaque principal: botão principal, detalhes */
+  --teal:#2AA3C4;          /* destaque secundário: degradês (NÃO usar em texto) */
+  --teal-text:#1F7B94;     /* o mesmo azul-água, um pouco mais escuro, para TEXTO sobre fundo claro (contraste mínimo WCAG AA) */
+  --navy:#195792;          /* azul de marca */
+  --navy-deep:#0B3459;     /* azul escuro: fundo */
+  --navy-deeper:#082A47;   /* azul mais escuro: fundo e textos sobre branco */
+  --ink:#0A0E14;           /* texto principal sobre fundo claro */
+  --mist:#F1F8FA;          /* fundo claro de apoio */
+  --line-on-dark:rgba(255,255,255,0.16);  /* bordas finas em fundo escuro */
+}
+
+
+/* ==========================================================================
+   2. BASE
+   ========================================================================== */
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  margin:0;
+  min-height:100vh;
+  font-family:'Manrope',sans-serif;
+  font-size:16px;
+  line-height:1.55;
+  color:#fff;
+  background-color:var(--navy-deeper);
+  background-image:radial-gradient(120% 90% at 78% 0%, #0F4676 0%, var(--navy-deep) 46%, var(--navy-deeper) 100%);
+  background-repeat:no-repeat;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;height:auto;display:block;}
+a{color:inherit;}
+p{margin:0;}
+h1,h2{
+  font-family:'Staatliches',sans-serif;
+  font-weight:400;
+  text-transform:uppercase;
+  line-height:1.05;
+  letter-spacing:.01em;
+  margin:0;
+}
+
+/* Sprite de ícones: fica no início do HTML, invisível */
+.sprite{position:absolute;width:0;height:0;overflow:hidden;}
+
+/* Elementos com o atributo hidden somem, mesmo que a classe defina display */
+[hidden]{display:none !important;}
+
+/* Coluna única centralizada */
+.bio{max-width:480px;margin:0 auto;padding:28px 20px 44px;}
+
+/* Eyebrow: rótulo pequeno com traço ciano (mesmo padrão do site) */
+.eyebrow{
+  font-family:'Staatliches',sans-serif;
+  font-size:13px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--cyan);
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.eyebrow::before{content:"";flex:none;width:22px;height:2px;background:var(--cyan);display:block;}
+
+
+/* ==========================================================================
+   3. TOPO
+   ========================================================================== */
+.bio-top{display:flex;flex-direction:column;align-items:center;text-align:center;margin-bottom:26px;}
+.bio-logo{height:30px;width:auto;margin-bottom:20px;}
+
+/* Foto redonda com anel em degradê da marca */
+.bio-avatar{
+  width:116px;height:116px;
+  border-radius:50%;
+  padding:4px;
+  background:linear-gradient(135deg,var(--cyan),var(--teal) 55%,var(--navy));
+  box-shadow:0 18px 40px -16px rgba(0,215,241,.45);
+}
+.bio-avatar img{
+  width:100%;height:100%;
+  border-radius:50%;
+  object-fit:cover;
+  border:4px solid var(--navy-deeper);
+}
+.bio-top h1{font-size:38px;margin-top:16px;color:#fff;}
+.bio-role{
+  font-family:'Staatliches',sans-serif;
+  font-size:13px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--cyan);
+  margin-top:6px;
+}
+.bio-pitch{
+  font-family:'Staatliches',sans-serif;
+  font-size:26px;
+  line-height:1.15;
+  color:#fff;
+  margin-top:14px;
+}
+.bio-pitch span{color:var(--cyan);}
+.bio-lead{
+  max-width:420px;
+  margin-top:14px;
+  font-size:15px;
+  line-height:1.5;
+  font-weight:500;
+  color:rgba(255,255,255,.82);
+  text-wrap:balance;
+}
+
+
+/* ==========================================================================
+   4. BOTÕES DE LINK
+   Estrutura de cada botão (copie um inteiro para criar outro):
+     <a class="link">
+       <span class="ico">ícone</span>
+       <span class="txt"><span class="t">título</span><span class="s">subtítulo</span></span>
+       <svg class="go">seta</svg>
+     </a>
+   Variação de destaque: class="link link-primary" (fundo ciano).
+   ========================================================================== */
+.links{display:flex;flex-direction:column;gap:12px;}
+.link{
+  display:flex;align-items:center;gap:14px;
+  min-height:62px;
+  padding:12px 16px;
+  border-radius:16px;
+  background:rgba(255,255,255,.07);
+  border:1.5px solid var(--line-on-dark);
+  color:#fff;
+  text-decoration:none;
+  transition:transform .18s ease, border-color .18s ease, background .18s ease, box-shadow .18s ease;
+}
+.link:hover{transform:translateY(-2px);border-color:var(--cyan);background:rgba(255,255,255,.11);}
+.link:active{transform:translateY(0);}
+
+/* Quadradinho do ícone */
+.link .ico{
+  flex:none;
+  width:40px;height:40px;
+  border-radius:12px;
+  background:rgba(0,215,241,.14);
+  color:var(--cyan);
+  display:flex;align-items:center;justify-content:center;
+}
+.link .ico svg,
+.link .go{
+  fill:none;
+  stroke:currentColor;
+  stroke-width:2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.link .ico svg{width:22px;height:22px;}
+
+/* Textos do botão */
+.link .txt{flex:1;min-width:0;display:flex;flex-direction:column;text-align:left;}
+/* text-wrap:balance equilibra as quebras de linha dos títulos (navegador antigo ignora, sem prejuízo) */
+.link .t{font-weight:800;font-size:15.5px;line-height:1.25;text-wrap:balance;}
+.link .s{font-weight:500;font-size:13px;line-height:1.35;color:rgba(255,255,255,.68);overflow-wrap:anywhere;}
+
+/* Setinha à direita */
+.link .go{flex:none;width:18px;height:18px;color:rgba(255,255,255,.5);}
+
+/* Botão principal (ciano) */
+.link-primary{
+  background:var(--cyan);
+  border-color:transparent;
+  color:var(--navy-deeper);
+  box-shadow:0 10px 26px -10px rgba(0,215,241,.6);
+}
+.link-primary:hover{background:var(--cyan);border-color:transparent;box-shadow:0 14px 30px -10px rgba(0,215,241,.75);}
+.link-primary .ico{background:rgba(8,42,71,.12);color:var(--navy-deeper);}
+.link-primary .s{color:rgba(8,42,71,.78);}
+.link-primary .go{color:var(--navy-deeper);}
+
+
+/* ==========================================================================
+   5. RÓTULO DE GRUPO
+   ========================================================================== */
+.group-label{margin:30px 0 14px;}
+
+
+/* ==========================================================================
+   6. CARTÃO "QUEM DIAGNOSTICA"
+   ========================================================================== */
+.bio-card{
+  margin-top:34px;
+  padding:28px 24px;
+  border-radius:22px;
+  background:#fff;
+  color:var(--ink);
+  box-shadow:0 30px 60px -28px rgba(0,0,0,.55);
+}
+.bio-card .eyebrow{color:var(--teal-text);}
+.bio-card .eyebrow::before{background:var(--cyan);}
+.bio-card h2{font-size:30px;color:var(--navy-deeper);margin:12px 0 14px;}
+.bio-card p{font-size:15.5px;color:#333;margin-bottom:14px;}
+.creds{display:flex;flex-direction:column;gap:10px;margin-top:22px;padding-top:20px;border-top:1px solid rgba(10,14,20,.10);}
+.creds div{display:flex;align-items:baseline;gap:14px;}
+.creds b{flex:none;min-width:54px;font-family:'Staatliches',sans-serif;font-weight:400;font-size:28px;line-height:1.1;color:var(--teal-text);}
+.creds span{font-size:12px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#666;}
+
+
+/* ==========================================================================
+   7. MÉTODO 4D
+   ========================================================================== */
+.bio-method{margin-top:30px;}
+.bio-method h2{font-size:30px;color:#fff;margin:12px 0 0;}
+.method-list{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:10px;}
+.method-list li{
+  display:flex;align-items:center;gap:10px;
+  padding:10px 16px;
+  border-radius:999px;
+  border:1.5px solid var(--line-on-dark);
+  background:rgba(255,255,255,.05);
+  font-weight:700;
+  font-size:14px;
+}
+.method-list .d{font-family:'Staatliches',sans-serif;font-weight:400;font-size:18px;letter-spacing:.02em;color:var(--cyan);}
+.method-note{margin-top:14px;font-size:14px;color:rgba(255,255,255,.7);}
+
+
+/* ==========================================================================
+   8. RODAPÉ
+   ========================================================================== */
+.bio-foot{
+  margin-top:36px;
+  padding-top:22px;
+  border-top:1px solid var(--line-on-dark);
+  text-align:center;
+  font-size:13px;
+  line-height:1.7;
+  color:rgba(255,255,255,.55);
+}
+.bio-foot a{color:rgba(255,255,255,.78);}
+
+
+/* ==========================================================================
+   9. TELAS MAIORES (a coluna continua estreita e centralizada)
+   ========================================================================== */
+@media (min-width:600px){
+  .bio{padding-top:56px;}
+  .bio-avatar{width:144px;height:144px;}
+  .bio-top h1{font-size:44px;}
+  .bio-pitch{font-size:30px;}
+}
+
+
+/* ==========================================================================
+   10. ACESSIBILIDADE
+   ========================================================================== */
+a:focus-visible{outline:3px solid var(--cyan);outline-offset:3px;}
+
+@media (prefers-reduced-motion: reduce){
+  *{transition:none !important;}
+  .link:hover{transform:none;}
+}
